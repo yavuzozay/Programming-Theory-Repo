@@ -4,23 +4,21 @@ using UnityEngine;
 
 public class EnemyBoss : Enemy
 {
-    EnemyProperties enemyProperties;
+    [SerializeField]EnemyProperties enemyProperties;
     private void Awake()
     {
         //inheritance
 
         Declare();
-        enemyProperties = new EnemyProperties();
 
-        enemyProperties.speed = 10f;
     }
 
     private void Update()
     {
         //inheritance
 
-        FollowPlayer(enemyProperties.speed);
-        Debug.Log(gameObject.name + enemyProperties.speed);
+        FollowPlayer(enemyProperties.m_speed);
+        Debug.Log(gameObject.name + enemyProperties.m_speed);
     }
 }
     
