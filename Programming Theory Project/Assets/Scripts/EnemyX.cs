@@ -9,6 +9,7 @@ public class EnemyX : Enemy
     
     private void Awake()
     {
+        base.speed = 5f;
         //inheritance
         Declare();
         
@@ -19,8 +20,9 @@ public class EnemyX : Enemy
     {
         //inheritance
 
-        FollowPlayer(enemyProperties.m_speed);
-        Debug.Log(gameObject.name + enemyProperties.m_speed);
+        FollowPlayer();
+        Debug.Log(gameObject.name + speed);
+       
 
     }
 }
