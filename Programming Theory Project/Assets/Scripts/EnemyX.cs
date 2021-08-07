@@ -9,7 +9,7 @@ public class EnemyX : Enemy
     
     private void Awake()
     {
-        base.speed = 5f;
+        base.speed = enemyProperties.m_speed;
         //inheritance
         Declare();
         

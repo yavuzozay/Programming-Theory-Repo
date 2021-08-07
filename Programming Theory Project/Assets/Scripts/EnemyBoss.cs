@@ -8,7 +8,7 @@ public class EnemyBoss : Enemy
     private void Awake()
     {
         //inheritance
-        base.speed = 7f;
+        base.speed =enemyProperties.m_speed;
         Declare();
 
     }
