@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoSingleton<GameManager>
 {
-    // Start is called before the first frame update
-    void Start()
+  public void StartGame()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Loader.Instance.LoadScene(1);
     }
 }

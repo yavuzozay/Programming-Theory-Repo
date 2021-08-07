@@ -8,7 +8,8 @@ public class MenuUI : MonoBehaviour
 {
   public void LoadGame()
     {
-        SceneManager.LoadScene(1);
+        Loader.Instance.LoadScene(1);
+        
     }
     public void Exit()
     {
