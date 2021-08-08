@@ -7,13 +7,23 @@ public class PlayerController : MonoBehaviour
     private Rigidbody playerRb;
     [SerializeField]private GameObject focalPoint;
     [SerializeField]private float speed;
+    Player player;
     private void Awake()
     {
+        player = GetComponent<Player>();
         playerRb = GetComponent<Rigidbody>();
     }
     void Update()
     {
-        Movement();
+        if(GameManager.Instance.isGameActive)
+        {
+            Movement();
+
+        }
+        else
+        {
+            GameManager.Instance.GameOver();
+        }
     }
     void Movement()
     {

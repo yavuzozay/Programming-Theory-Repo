@@ -17,13 +17,20 @@ public class Enemy : MonoBehaviour
 
     protected void FollowPlayer()
     {
-        Vector3 lookDirection = (player.transform.position - transform.position).normalized;
-        enemyRb.AddForce(lookDirection * speed);
+        if(GameManager.Instance.isGameActive)
+        {
+            Vector3 lookDirection = (player.transform.position - transform.position).normalized;
+            enemyRb.AddForce(lookDirection * speed);
+        }
+       
     }
    protected void FollowPlayer(float speed)
     {
-        Vector3 lookDirection = (player.transform.position - transform.position).normalized;
-        enemyRb.AddForce(lookDirection * speed);
+        if (GameManager.Instance.isGameActive)
+        {
+            Vector3 lookDirection = (player.transform.position - transform.position).normalized;
+            enemyRb.AddForce(lookDirection * speed);
+        }
 
     }
 }
