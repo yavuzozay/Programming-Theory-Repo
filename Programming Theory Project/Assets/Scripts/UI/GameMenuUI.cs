@@ -23,8 +23,5 @@ public class GameMenuUI : MonoBehaviour
     {
         Loader.Instance.LoadScene(0);
     }
-    public void StartBtn()
-    {
-        GameManager.Instance.StartGame();
-    }
+ 
 }

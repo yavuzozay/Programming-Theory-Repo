@@ -9,8 +9,16 @@ public class Player :MonoBehaviour
     public int health
     {
         get { return _health; }
-        set { _health = value; }
+        set {
+            if (_health > 0)
+                _health = value;
+           
+        }
     }
-    
+    private void LateUpdate()
+    {
+        if (_health<=0)
+            GameManager.Instance.GameOver();
+    }
 
 }

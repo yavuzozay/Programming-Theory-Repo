@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+       // player.health--;
         if(GameManager.Instance.isGameActive)
         {
             Movement();
@@ -22,9 +23,12 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            playerRb.Sleep();
             GameManager.Instance.GameOver();
+
         }
     }
+ 
     void Movement()
     {
         float forwardInput = Input.GetAxis("Vertical");

@@ -7,12 +7,17 @@ public class EnemyBoss : Enemy
     [SerializeField]EnemyProperties enemyProperties;
     private void Awake()
     {
+        base.damage = 10;
         //inheritance
         base.speed =enemyProperties.m_speed;
         Declare();
 
     }
-
+    
+    protected override void DealDamage(int damage)
+    {
+        base.DealDamage(damage);
+    }
     private void Update()
     {
         //inheritance

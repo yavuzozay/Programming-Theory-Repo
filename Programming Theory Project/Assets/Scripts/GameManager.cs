@@ -8,11 +8,13 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField]private TextMeshProUGUI gameOverText;
     private int _score;
     private bool _isGameActive=true;
+    [SerializeField]private GameObject player;
     public int score
     {
         get { return _score; }
         set { _score = value; }
     }
+    
     public bool isGameActive
     {
         get { return _isGameActive; }
@@ -21,12 +23,16 @@ public class GameManager : MonoSingleton<GameManager>
  
     public void StartGame()
     {
+      
+
         _isGameActive = true;
          Loader.Instance.LoadScene(1);
     }
+   
     public void GameOver()
     {
         _isGameActive = false;
         gameOverText.gameObject.SetActive(true);
     }
+   
 }
