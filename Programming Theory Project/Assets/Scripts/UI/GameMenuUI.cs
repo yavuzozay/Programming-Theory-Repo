@@ -6,6 +6,9 @@ using TMPro;
 public class GameMenuUI : MonoBehaviour
 {
     [SerializeField]private TextMeshProUGUI playerHealthTxt;
+    [SerializeField]private TextMeshProUGUI gameOverText;
+    [SerializeField] private TextMeshProUGUI scoreTxt;
+
     private Player player;
     private void Awake()
     {
@@ -13,7 +16,18 @@ public class GameMenuUI : MonoBehaviour
     }
     private void Update()
     {
-        playerHealthTxt.SetText("Health :"+player.health);
+        SetTextUI();
+
+    }
+    private void SetTextUI()
+    {
+        playerHealthTxt.SetText("Health :" + player.health);
+        scoreTxt.SetText("Score :" + GameManager.Instance.score);
+        if (!GameManager.Instance.isGameActive)
+        {
+            gameOverText.gameObject.SetActive(true);
+    
+        }
     }
     public void Restart()
     {

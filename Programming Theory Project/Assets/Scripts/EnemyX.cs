@@ -16,14 +16,18 @@ public class EnemyX : Enemy
         
         
     }
-  
+    protected override void Attack()
+    {
+
+        base.Attack();
+    }
 
     private void Update()
     {
-        //inheritance
+       
 
         FollowPlayer();
-        Debug.Log(gameObject.name + speed);
+      
        
 
     }

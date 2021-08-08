@@ -13,9 +13,34 @@ public class PlayerController : MonoBehaviour
         player = GetComponent<Player>();
         playerRb = GetComponent<Rigidbody>();
     }
+    public void Attack()
+    {
+        /*
+       if(Input.anyKeyDown)
+        {
+
+       
+            switch (Input.inputString)
+            {
+                case "q":
+                    Debug.Log("1 pressed");
+                    break;
+                case "w":
+                    Debug.Log("2 pressed");
+                    break;
+                case "e":
+                    Debug.Log("3 pressed");
+                    break;
+               
+            
+        }
+            }*/
+        }
+
     void Update()
     {
-       // player.health--;
+        Attack();
+        // player.health--;
         if(GameManager.Instance.isGameActive)
         {
             Movement();

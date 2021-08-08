@@ -5,7 +5,6 @@ using TMPro;
 
 public class GameManager : MonoSingleton<GameManager>
 {
-    [SerializeField]private TextMeshProUGUI gameOverText;
     private int _score;
     private bool _isGameActive=true;
     [SerializeField]private GameObject player;
@@ -20,7 +19,7 @@ public class GameManager : MonoSingleton<GameManager>
         get { return _isGameActive; }
         set { _isGameActive = value; }
     }
- 
+   
     public void StartGame()
     {
       
@@ -32,7 +31,6 @@ public class GameManager : MonoSingleton<GameManager>
     public void GameOver()
     {
         _isGameActive = false;
-        gameOverText.gameObject.SetActive(true);
     }
    
 }

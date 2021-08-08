@@ -23,8 +23,10 @@ public class EnemyBoss : Enemy
         //inheritance
 
         FollowPlayer();
-        Debug.Log(gameObject.name + speed);
+      
 
     }
+
+  
 }
     

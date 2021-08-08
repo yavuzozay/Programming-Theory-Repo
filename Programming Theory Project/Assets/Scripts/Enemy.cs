@@ -21,6 +21,11 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
             DealDamage(damage);
     }
+    protected virtual void Attack()
+    {
+        
+    }
+
     protected virtual  void DealDamage(int damage)
     {
         player.GetComponent<Player>().health -= damage;
