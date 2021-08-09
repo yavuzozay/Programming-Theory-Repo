@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyProperties:
-    m_speed: 1
+    m_speed: 2
 --- !u!54 &6856898238633278902
 Rigidbody:
   m_ObjectHideFlags: 0

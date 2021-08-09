@@ -16,10 +16,20 @@ public class Enemy : MonoBehaviour
        player = GameObject.FindGameObjectWithTag("Player");
         enemyRb = GetComponent<Rigidbody>();
         }
-    protected void OnCollisionEnter(Collision collision)
+     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
             DealDamage(damage);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Rifle"))
+        {
+
+            GameManager.Instance.score++;
+            Destroy(gameObject);
+            Destroy(other.gameObject);
+        }
     }
     protected virtual void Attack()
     {

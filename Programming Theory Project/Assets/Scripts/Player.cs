@@ -36,7 +36,7 @@ public class Player :MonoBehaviour
             enemyRb.AddForce(awayFromPlayer * _power, ForceMode.Impulse);
         }
     }
-
+ 
     private void LateUpdate()
     {
         if (_health<=0)

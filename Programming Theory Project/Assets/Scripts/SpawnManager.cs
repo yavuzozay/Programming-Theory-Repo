@@ -2,17 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnManager : MonoBehaviour
+public class SpawnManager : MonoSingleton<SpawnManager>
 {
     [SerializeField] private List<GameObject>enemyPrefabs=new List<GameObject>();
     [SerializeField] private GameObject boss;
     [SerializeField] private GameObject gem;
     [SerializeField] private float xBound;
     [SerializeField] private float zBound;
+    private PlayerController playerController;
     private int enemyCount;
     private void Awake()
     {
-        SpawnEnemyWave(2);   
+        GameManager.Instance.level = 1;
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+    }
+    private void Update()
+    {
+        //Abstraction
+        SpawnControl();
+    }
+    private void SpawnControl()
+    {
+        enemyCount = FindObjectsOfType<Enemy>().Length;
+        if (enemyCount == 0)
+        {
+            GameManager.Instance.level++;
+            SpawnEnemyWave(GameManager.Instance.level);
+            SpawnObject(gem);
+
+        }
+    
     }
     public void SpawnEnemyWave(int enemiesToSpawn)
     {
@@ -22,14 +41,25 @@ public class SpawnManager : MonoBehaviour
             {
                 Instantiate(RandomEnemy(), GenerateSpawnPosition(), RandomEnemy().transform.rotation);
             }
+
         }
-        SpawnObject(gem);
+        else
+        {
+            for (int i = 0; i <enemiesToSpawn; i++)
+            {
+                Instantiate(RandomEnemy(), GenerateSpawnPosition(), RandomEnemy().transform.rotation);
+
+            }
+            Instantiate(boss, GenerateSpawnPosition(), boss.transform.rotation);
+
+        }
     }
-    
-    void SpawnObject(GameObject obj)
+
+    public void SpawnObject(GameObject obj)
     {
         Instantiate(obj, GenerateSpawnPosition(),obj.transform.rotation);
     }
+ 
 
     private GameObject RandomEnemy()
     {

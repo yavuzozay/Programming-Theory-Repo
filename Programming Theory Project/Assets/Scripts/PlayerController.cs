@@ -8,34 +8,31 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private GameObject focalPoint;
     [SerializeField]private float speed;
     Player player;
+    
+    [SerializeField] private GameObject rifle;
+
+ 
     private void Awake()
     {
         player = GetComponent<Player>();
         playerRb = GetComponent<Rigidbody>();
     }
-    public void Attack()
+     void Attack()
     {
-        /*
-       if(Input.anyKeyDown)
-        {
 
-       
-            switch (Input.inputString)
-            {
-                case "q":
-                    Debug.Log("1 pressed");
-                    break;
-                case "w":
-                    Debug.Log("2 pressed");
-                    break;
-                case "e":
-                    Debug.Log("3 pressed");
-                    break;
-               
-            
+        if (Input.GetKeyDown(KeyCode.Space))
+            FireAttack();
         }
-            }*/
-        }
+    void FireAttack()
+    {
+        Vector3 spawnPos = transform.position;
+
+
+        Instantiate(rifle, spawnPos, Quaternion.Euler(0, 0, 0));
+        Instantiate(rifle, spawnPos, Quaternion.Euler(0, 90, 0));
+        Instantiate(rifle, spawnPos, Quaternion.Euler(0, 180, 0));
+        Instantiate(rifle, spawnPos, Quaternion.Euler(0, 270, 0));
+    }
 
     void Update()
     {

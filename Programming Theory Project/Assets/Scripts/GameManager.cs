@@ -6,12 +6,19 @@ using TMPro;
 public class GameManager : MonoSingleton<GameManager>
 {
     private int _score;
+    private int _level;
     private bool _isGameActive=true;
     [SerializeField]private GameObject player;
+    //Encapsulation
     public int score
     {
         get { return _score; }
         set { _score = value; }
+    }
+    public int level
+    {
+        get { return _level; }
+        set { _level = value; }
     }
     
     public bool isGameActive

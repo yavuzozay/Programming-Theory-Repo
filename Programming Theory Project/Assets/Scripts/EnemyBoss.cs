@@ -13,7 +13,7 @@ public class EnemyBoss : Enemy
         Declare();
 
     }
-    
+    //Polymorphism
     protected override void DealDamage(int damage)
     {
         base.DealDamage(damage);
