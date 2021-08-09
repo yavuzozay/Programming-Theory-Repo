@@ -5,6 +5,8 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject>enemyPrefabs=new List<GameObject>();
+    [SerializeField] private GameObject boss;
+    [SerializeField] private GameObject gem;
     [SerializeField] private float xBound;
     [SerializeField] private float zBound;
     private int enemyCount;
@@ -21,6 +23,12 @@ public class SpawnManager : MonoBehaviour
                 Instantiate(RandomEnemy(), GenerateSpawnPosition(), RandomEnemy().transform.rotation);
             }
         }
+        SpawnObject(gem);
+    }
+    
+    void SpawnObject(GameObject obj)
+    {
+        Instantiate(obj, GenerateSpawnPosition(),obj.transform.rotation);
     }
 
     private GameObject RandomEnemy()
