@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private GameObject player;
+    private  GameObject player;
     private Rigidbody enemyRb;
-    protected float speed=3f;
-    protected int damage;
+    [SerializeField] protected  float speed=3f;
+    [SerializeField] protected int damage;
 
 
    

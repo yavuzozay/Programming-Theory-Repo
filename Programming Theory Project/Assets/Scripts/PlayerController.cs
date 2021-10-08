@@ -7,14 +7,15 @@ public class PlayerController : MonoBehaviour
     private Rigidbody playerRb;
     [SerializeField]private GameObject focalPoint;
     [SerializeField]private float speed;
-    Player player;
+    private float forwardInput;
+  
     
     [SerializeField] private GameObject rifle;
 
- 
+
+
     private void Awake()
     {
-        player = GetComponent<Player>();
         playerRb = GetComponent<Rigidbody>();
     }
      void Attack()
@@ -33,12 +34,14 @@ public class PlayerController : MonoBehaviour
         Instantiate(rifle, spawnPos, Quaternion.Euler(0, 180, 0));
         Instantiate(rifle, spawnPos, Quaternion.Euler(0, 270, 0));
     }
-
     void Update()
     {
         Attack();
         // player.health--;
-        if(GameManager.Instance.isGameActive)
+         forwardInput = Input.GetAxis("Vertical");
+      
+
+        if (GameManager.Instance.isGameActive)
         {
             Movement();
 
@@ -50,10 +53,15 @@ public class PlayerController : MonoBehaviour
 
         }
     }
- 
+
+    private void FixedUpdate()
+    {
+        Movement();
+    }
     void Movement()
     {
-        float forwardInput = Input.GetAxis("Vertical");
-        playerRb.AddForce(focalPoint.transform.forward * speed * forwardInput);
+        playerRb.AddForce(focalPoint.transform.forward * speed * forwardInput*Time.fixedDeltaTime);
+     
+
     }
 }

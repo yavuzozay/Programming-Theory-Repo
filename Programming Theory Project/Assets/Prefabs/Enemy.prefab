@@ -109,6 +109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29818bf26ac5e9e42a355d0e8f3a0327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 3
+  damage: 5
   enemyProperties:
     m_speed: 2
 --- !u!54 &6856898238633278902

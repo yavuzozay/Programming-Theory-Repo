@@ -12,13 +12,14 @@ public class RotateCamera : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
     }
-    private void LateUpdate()
+  
+    private void FixedUpdate()
     {
-        Rotate();
-        FollowPlayer();
+       Rotate();
+       FollowPlayer();
     }
 
-   private void FollowPlayer()
+    private void FollowPlayer()
 
     {
         transform.position = player.transform.position + offset;
@@ -27,6 +28,7 @@ public class RotateCamera : MonoBehaviour
     void Rotate()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
-        transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime*horizontalInput);
+        transform.Rotate( Vector3.up * rotateSpeed * Time.fixedDeltaTime*horizontalInput);
+        
     }
 }

@@ -410,7 +410,7 @@ PrefabInstance:
       objectReference: {fileID: 7613243893773093372, guid: 1795ef87796e6b344823673ad948b08c, type: 3}
     - target: {fileID: 7966933108250275198, guid: 083b437a996250c43a6d7722fa1a14d1, type: 3}
       propertyPath: speed
-      value: 3
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7966933108250275198, guid: 083b437a996250c43a6d7722fa1a14d1, type: 3}
       propertyPath: focalPoint
