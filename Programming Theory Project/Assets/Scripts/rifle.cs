@@ -5,7 +5,7 @@ using UnityEngine;
 public class rifle : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] GameObject player;
+    
     private float bound=30;
     private void Update()
     {

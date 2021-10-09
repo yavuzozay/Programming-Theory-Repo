@@ -9,11 +9,8 @@ public class GameMenuUI : MonoBehaviour
     [SerializeField]private TextMeshProUGUI gameOverText;
     [SerializeField] private TextMeshProUGUI scoreTxt;
 
-    private Player player;
-    private void Awake()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-    }
+   
+ 
     private void Update()
     {
         SetTextUI();
@@ -21,7 +18,7 @@ public class GameMenuUI : MonoBehaviour
     }
     private void SetTextUI()
     {
-        playerHealthTxt.SetText("Health :" + player.health);
+       
         scoreTxt.SetText("Score :" + GameManager.Instance.score);
         if (!GameManager.Instance.isGameActive)
         {
@@ -37,5 +34,25 @@ public class GameMenuUI : MonoBehaviour
     {
         Loader.Instance.LoadScene(0);
     }
- 
+    void onPlayerHPChanged(float curhHP,float maxHp)
+    {
+        playerHealthTxt.SetText("Health :"+curhHP);
+    }
+    void onScoreChanged(float score)
+    {
+        scoreTxt.SetText("Score :" +score);
+    }
+
+
+    private void OnEnable()
+    {
+        EventManager.onPlayerHPChanged += onPlayerHPChanged;
+        EventManager.onScoreChanged += onScoreChanged;
+    }
+    private void OnDisable()
+    {
+        EventManager.onPlayerHPChanged -= onPlayerHPChanged;
+        EventManager.onScoreChanged -= onScoreChanged;
+    }
+
 }

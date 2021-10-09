@@ -6,7 +6,7 @@ using TMPro;
 public class GameManager : MonoSingleton<GameManager>
 {
     private int _score;
-    private int _level;
+     private int _level;
     private bool _isGameActive=true;
     [SerializeField]private GameObject player;
     //Encapsulation
@@ -34,10 +34,17 @@ public class GameManager : MonoSingleton<GameManager>
         _isGameActive = true;
          Loader.Instance.LoadScene(1);
     }
+    public void IncreaseScore(int point)
+    {
+        score += point;
+        EventManager.Fire_onScoreChanged(score);
+    }
    
     public void GameOver()
     {
         _isGameActive = false;
     }
+
+
    
 }

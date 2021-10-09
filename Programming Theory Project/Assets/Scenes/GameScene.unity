@@ -404,6 +404,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7966933108250275197, guid: 083b437a996250c43a6d7722fa1a14d1, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7966933108250275198, guid: 083b437a996250c43a6d7722fa1a14d1, type: 3}
       propertyPath: rifle
       value: 
@@ -411,6 +415,10 @@ PrefabInstance:
     - target: {fileID: 7966933108250275198, guid: 083b437a996250c43a6d7722fa1a14d1, type: 3}
       propertyPath: speed
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966933108250275198, guid: 083b437a996250c43a6d7722fa1a14d1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7966933108250275198, guid: 083b437a996250c43a6d7722fa1a14d1, type: 3}
       propertyPath: focalPoint
@@ -2054,7 +2062,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7966933108250275195, guid: 083b437a996250c43a6d7722fa1a14d1, type: 3}
   m_PrefabInstance: {fileID: 398596051}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1839552937
+--- !u!114 &1839552944
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2063,11 +2071,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1839552936}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1db610069a67ea4fba4329d1661263f, type: 3}
+  m_Script: {fileID: 11500000, guid: cb7ef8c805663454c94705fcc00fc5bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 100
-  _power: 5
+  maxHP: 100
+  speed: 3.4
+  damage: 1
+  focalPoint: {fileID: 839345470}
+  rifle: {fileID: 7613243893773093372, guid: 1795ef87796e6b344823673ad948b08c, type: 3}
 --- !u!1 &2116643595
 GameObject:
   m_ObjectHideFlags: 0

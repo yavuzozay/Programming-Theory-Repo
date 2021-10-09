@@ -8,11 +8,12 @@ public class Reward : MonoBehaviour
 
     protected virtual void IncreaseScore()
     {
-        GameManager.Instance.score += point;
+        GameManager.Instance.IncreaseScore(point);
+        
     }
     protected virtual void IncreaseScore(int value)
     {
-        GameManager.Instance.score += value;
+        GameManager.Instance.IncreaseScore(value);
     }
   
 

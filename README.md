@@ -2,59 +2,33 @@
  submission 2 for jr programmer pathway
 
  ## Inheritance
- 
-EnemyX, EnemyBoss inherit from Enemy class.<br>
+ PlayerBall ve EnemyBall base class olan BaseBall clasından miras almaktadır. Ortak olan fonksiyonlar ve değişebilecek fonksiyonlar olduğundan dolayı base class abstract olarak tanımlanmıştır.
 
-in Enemy class
-````  
 
-  protected void FollowPlayer(float speed)
-    {
-        if (GameManager.Instance.isGameActive)
-        {
-            Vector3 lookDirection = (player.transform.position - transform.position).normalized;
-            enemyRb.AddForce(lookDirection * speed);
-        }
-        else
-        {
-            enemyRb.Sleep();
-        }
-
-    }
-````
-EnemyBoss class
-````
-private void Update()
-    {
-        //inheritance
-
-        FollowPlayer();
-      
-
-    }
-````
 ## Polymorphism
+
 ````
-protected virtual  void DealDamage(int damage)
+   public virtual void DecreaseHP(float damage)
     {
-        player.GetComponent<Player>().health -= damage;
+        curHP -= damage;
+        if (curHP <= 0)
+            curHP = 0;
     }
 ````
 
 ````
- protected override void DealDamage(int damage)
+public override void DecreaseHP(float damage)
     {
-        //Customize
-        base.DealDamage(damage);
+       base.DecreaseHP(damage);
+       EventManager.Fire_onPlayerHPChanged(curHP, maxHP);
+
     }
 ````
 ## Abstraction
+
+Spawn kontrol fonskiyonu içerisindeki adımların hepsinin amacı spawnlanacak objeyi belirlemektir.
 ````
-private void Update()
-    {
-        //Abstraction
-        SpawnControl();
-    }
+
     private void SpawnControl()
     {
         enemyCount = FindObjectsOfType<Enemy>().Length;
@@ -70,7 +44,7 @@ private void Update()
 ````
 ## Encapsulation
 ````
- [SerializeField] private int _health;
+     [SerializeField] private int _health;
     [SerializeField] private int _power;
 
 

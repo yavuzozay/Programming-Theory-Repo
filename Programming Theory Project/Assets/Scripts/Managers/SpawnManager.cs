@@ -9,12 +9,12 @@ public class SpawnManager : MonoSingleton<SpawnManager>
     [SerializeField] private GameObject gem;
     [SerializeField] private float xBound;
     [SerializeField] private float zBound;
-    private PlayerController playerController;
+    
     private int enemyCount;
     private void Awake()
     {
         GameManager.Instance.level = 1;
-        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+       
     }
     private void Update()
     {
@@ -23,7 +23,8 @@ public class SpawnManager : MonoSingleton<SpawnManager>
     }
     private void SpawnControl()
     {
-        enemyCount = FindObjectsOfType<Enemy>().Length;
+        enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        Debug.Log(enemyCount);
         if (enemyCount == 0)
         {
             GameManager.Instance.level++;
